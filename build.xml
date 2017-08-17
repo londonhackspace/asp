@@ -1,38 +1,72 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project default="create_run_jar" name="Create Runnable Jar for Project aspcore">
-    <!--this file was created by Eclipse Runnable JAR Export Wizard-->
-    <!--ANT 1.7 is required                                        -->
-    <target name="create_run_jar">
-        <jar destfile="C:/Users/ROBiNBYTE/aspcore/dist/asp_core.jar" filesetmanifest="mergewithoutmain">
+<project default="buildwar" name="Create Runnable Jar for Project aspcore">
+
+    <path id="master-classpath">
+  <fileset dir="libraries">
+    <include name="*.jar"/>
+  </fileset>
+
+
+
+    </path>
+
+    <target name="compile">
+        <mkdir dir="build/classes"/>
+        <javac srcdir="src" destdir="build/classes">
+            	<classpath refid="master-classpath"/>
+	</javac>
+    </target>
+
+    <target name="create_run_jar" depends="compile">
+        <jar destfile="dist/asp_core.jar" filesetmanifest="mergewithoutmain" basedir="build/classes">
             <manifest>
                 <attribute name="Main-Class" value="org.aspcloud.Runner"/>
                 <attribute name="Class-Path" value="."/>
             </manifest>
-            <fileset dir="C:/Users/ROBiNBYTE/aspcore/bin"/>
-            <zipfileset excludes="META-INF/*.SF" src="C:/Users/ROBiNBYTE/aspcore/libraries/commons-beanutils-1.8.3.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="C:/Users/ROBiNBYTE/aspcore/libraries/commons-beanutils-core-1.8.3.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="C:/Users/ROBiNBYTE/aspcore/libraries/commons-collections-3.2.1.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="C:/Users/ROBiNBYTE/aspcore/libraries/commons-lang-2.6.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="C:/Users/ROBiNBYTE/aspcore/libraries/commons-logging-1.1.1.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="C:/Users/ROBiNBYTE/aspcore/libraries/commons-logging-api-1.1.1.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="C:/Users/ROBiNBYTE/aspcore/libraries/dsn.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="C:/Users/ROBiNBYTE/aspcore/libraries/ezmorph-1.0.6.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="C:/Users/ROBiNBYTE/aspcore/libraries/imap.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="C:/Users/ROBiNBYTE/aspcore/libraries/jaxen-core.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="C:/Users/ROBiNBYTE/aspcore/libraries/jaxen-jdom.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="C:/Users/ROBiNBYTE/aspcore/libraries/jdom.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="C:/Users/ROBiNBYTE/aspcore/libraries/jregex1.2_01.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="C:/Users/ROBiNBYTE/aspcore/libraries/json-lib-2.4-jdk15.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="C:/Users/ROBiNBYTE/aspcore/libraries/log4j-1.2.16.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="C:/Users/ROBiNBYTE/aspcore/libraries/mailapi.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="C:/Users/ROBiNBYTE/aspcore/libraries/mysql-connector-java-5.1.12-bin.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="C:/Users/ROBiNBYTE/aspcore/libraries/pop3.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="C:/Users/ROBiNBYTE/aspcore/libraries/saxpath.jar"/>
-            <!-- <zipfileset excludes="META-INF/*.SF" src="C:/Users/ROBiNBYTE/aspcore/libraries/servlet-api.jar"/> -->
-            <zipfileset excludes="META-INF/*.SF" src="C:/Users/ROBiNBYTE/aspcore/libraries/smtp.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="C:/Users/ROBiNBYTE/aspcore/libraries/xml-apis.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="C:/Users/ROBiNBYTE/aspcore/libraries/xalan.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="C:/Users/ROBiNBYTE/aspcore/libraries/xerces.jar"/>
+            <fileset dir="bin"/>
+            <zipfileset excludes="META-INF/*.SF" src="libraries/commons-beanutils-1.8.3.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="libraries/commons-beanutils-core-1.8.3.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="libraries/commons-collections-3.2.1.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="libraries/commons-lang-2.6.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="libraries/commons-logging-1.1.1.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="libraries/commons-logging-api-1.1.1.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="libraries/dsn.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="libraries/ezmorph-1.0.6.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="libraries/imap.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="libraries/jaxen-core.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="libraries/jaxen-jdom.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="libraries/jdom.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="libraries/jregex1.2_01.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="libraries/json-lib-2.4-jdk15.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="libraries/log4j-1.2.16.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="libraries/mailapi.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="libraries/mysql-connector-java-5.1.12-bin.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="libraries/pop3.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="libraries/saxpath.jar"/>
+            <!-- <zipfileset excludes="META-INF/*.SF" src="libraries/servlet-api.jar"/> -->
+            <zipfileset excludes="META-INF/*.SF" src="libraries/smtp.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="libraries/xml-apis.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="libraries/xalan.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="libraries/xerces.jar"/>
         </jar>
+        <copy todir="web/WEB-INF/lib">
+            <fileset dir="dist">
+                <include name="**/*.jar" />
+            </fileset>
+        </copy>
+    </target>
+    <target name="setup" depends="create_run_jar">
+        <mkdir dir="dist_war" />
+        <echo>Copying web into dist</echo>
+        <copydir dest="dist_war/web" src="web" />
+    </target>
+    <target name="buildwar" depends="setup">
+        <war basedir="${basedir}/dist_war/web" destfile="dist_war/cloudasp.war"
+            webxml="${basedir}/dist_war/web/WEB-INF/web.xml">
+            <exclude name="WEB-INF/**" />
+            <webinf dir="${basedir}/dist_war/web/WEB-INF/">
+            <include name="**/*.jar" />
+        </webinf>
+    </war>
     </target>
 </project>
