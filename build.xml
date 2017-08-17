@@ -23,7 +23,6 @@
                 <attribute name="Main-Class" value="org.aspcloud.Runner"/>
                 <attribute name="Class-Path" value="."/>
             </manifest>
-            <fileset dir="bin"/>
             <zipfileset excludes="META-INF/*.SF" src="libraries/commons-beanutils-1.8.3.jar"/>
             <zipfileset excludes="META-INF/*.SF" src="libraries/commons-beanutils-core-1.8.3.jar"/>
             <zipfileset excludes="META-INF/*.SF" src="libraries/commons-collections-3.2.1.jar"/>
