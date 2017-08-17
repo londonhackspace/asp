@@ -1,0 +1,5 @@
+dist_war/
+dist/
+build/
+*.class
+*.war
